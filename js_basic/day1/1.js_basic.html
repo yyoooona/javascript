@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function(){
+		// call back 함수
+		var myBtn = document.getElementById("btn3");
+		myBtn.onclick = function () {
+			alert("button3 누름");
+		}; // function은 이벤트 핸들러, onclick은 이벤트 속성
+	}
+	
+	</script>
+
+</head>
+<body> 
+
+<input type="button" value= "button1" onclick="alert('button1');">
+<button onclick='alert("button2");'>button2</button>
+<button id = "btn3">button3</button>
+
+
+<script>
+// (1) 변수 호이스팅
+
+console.log("before a = ", a); // error 아님 undefined, js는 var을 찾아 끌어올림(hoisting)
+// console.log("before b = ", b);
+// console.log("before c = ", c); // error : c is not defined
+var a = 20; 				   // a가 이제 숫자 타입
+// let b;
+c = 10;
+console.log("after a = ", a);
+// console.log("after b = ", b);
+console.log("after c = ", c);
+
+// (2) 함수 호이스팅
+call()
+function call(){
+	alert("함수입니다.");
+}
+</script>
+<script>
+// 변수의 타입
+a = "자바스크립트"
+console.log(a + "==>"+ typeof(a));
+b = 10/0
+console.log(b + "==>"+ typeof(b));
+c = 10/"A" // NaN (Not a Number)
+console.log(c + "==>"+ typeof(c));
+
+// 문자열 한번에 표현하기
+var score = 100
+var s = `문자를 한번에
+이렇게 길게 표현하기
+${score}
+`;
+console.log(s);
+
+</script>
+
+
+</body>
+</html>

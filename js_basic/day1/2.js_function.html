@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/*
+window.onload = function(){
+	console.log("load 끝났다")
+	var b1 = document.getElementById("btn1");
+	b1.onclick = f2; //f2()하면 절대안돼 이건 호출하는것, 실제 수행하는 것이 아니라 정의만 해놓는 것
+};*/
+
+window.onload = f
+function f(){
+	var b1 = document.getElementById("btn1")
+	// 무명함수 만들기
+	b1.onclick = function (){
+		console.log("버튼1 누름")
+	};
+	btn2.onclick = function(){
+		var a=10, b=20;
+		// here.innerHTML += `<br>a = ${a} b = ${b} 합계는 a+b = ${a+b}`;
+		
+		var today = new Date();
+		// here.innerHTML += `<br>오늘은 ${today}`;
+		here.innerHTML += `<br>오늘은 ${today.getMonth()+1}월 ${today.getDate()}일
+		
+		`;
+	};
+	
+};
+
+
+function f2(){
+	alert("버튼 1을 누름");
+	console.log("버튼 1을 누름");
+};
+
+var f = function(){
+	alert("익명함수")
+}
+function call(){
+	alert("이름이 있는 함수");
+}
+</script>
+</head>
+<body>
+<button id="btn1">버튼1</button>
+<button id="btn2">버튼2</button>
+<button id="btn3">버튼3</button>
+<div id = "here">요기</div>
+
+</body>
+</html>

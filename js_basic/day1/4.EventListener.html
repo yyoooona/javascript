@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var a = 10; // 윈도우에 추가 -> global 의미
+b = 20;		// global
+function call(){
+	var c = 30; // 지역변수 -> 함수 내에서만 유효
+	d = 40;		// global
+}
+console.log(a+b);
+console.dir(window);
+
+	window.onload = function (){ // window 객체에 onload 속성
+
+		obj = {name:"홍길동", age:20}; // new Object()
+		
+		btn4.onclick = function(){	 // btn4 는 객체, 객체는 속성과 행위가 있다. onclick 이벤트 속성
+			// Event Handler
+			var person = {name:"한지윤", subject:"소프트웨어전공"};
+			person.grade = 4;
+			person.study = function(s){ // 동작을 쓰는건 무조건 함수, 이름이 필요없어서 안쓰는 익명함수, 원래는 function aa(){}
+				here.innerHTML += s+ "열공";
+			};
+			// 속성접근
+			here.innerHTML += "<br>"+"이름은"+ person.name + "전공은" + person["subject"];
+			// 함수속성 실행
+			person.study("JavaScript");
+		};
+		
+		btn3.onclick = function() {
+			obj.go = function() {    // obj객체에 go 속성
+				alert("obj의 go함수이다.");
+			};
+			obj.toString = function(){
+				return "Object Return";
+			};
+			obj.go();
+			here.innerHTML += "<br>"+obj;
+		};
+		
+		btn2.onclick = function(){
+			here.innerHTML = "name" in obj;
+			here.innerHTML += "<br>"+ ("toString" in obj);
+			here.innerHTML += "<br>"+ obj.toString();
+			
+		};
+		
+		
+		btn1.onclick = function(){
+			obj.name = "한지윤"	// 수정
+			obj.score = 100		// 추가
+			console.log(`이름은 ${obj.name}`);
+			console.log(`나이는 ${obj["age"]}`);
+			here.innerHTML = `이름은 ${obj.name}
+			나이는 ${obj["age"]}
+			점수는${obj.score}
+			`;
+		};
+	};
+	
+	var a = function (){};
+	console.log(a, typeof(a));
+	console.log(typeof(window));
+</script>
+
+</head>
+<body>
+	<button id="btn1">버튼1</button>
+	<button id="btn2">버튼2(in연산자)</button>
+	<button id="btn3">버튼3(함수추가)</button>
+	<button id="btn4">버튼4(함수추가)</button>
+	
+	<div id="here"></div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.onload = f;
+// 명시적함수
+function f(){
+	btn1.onclick = function (){
+		call();
+		function call(){
+			here.innerHTML = "no 인자 no return";
+		};
+		
+	};
+	
+	btn2.onclick = function (){
+		call(10,20);
+		call(999);
+		function call(x, y){
+			here.innerHTML = x+" "+y+"인자 O return X";			
+		};
+	};
+	btn3.onclick = function (){
+		var result = call(100,200);
+		here.innerHTML += "<br>인자 O return O : "+ result;
+		function call(x,y){
+			return x+y;			
+		};
+	};
+	
+	btn4.onclick = function (){
+		var call = function(a, b, c){
+			return a+b+c;
+		};
+		var result = call(1, 2, 3);
+		here.innerHTML = "리터럴 함수, 인자 O return O : " + result;
+	};
+	
+	btn5.onclick = function(){
+		
+		// 익명 함수, 함수 이름이 없는 함수 (일회성)
+		here.innerHTML = (function(x,y){return x*y;})(10, 20);
+	};
+	
+	
+};
+// 익명함수
+var f2 = function(){
+	// 재사용하려고
+};
+</script>
+</head>
+<body>
+<button id="btn1">버튼1(인자없는 경우)</button>
+<button id="btn2">버튼2(인자가 있는 경우)</button>
+<button id="btn3">버튼3(인자있고 return 있음)</button>
+<button id="btn4">버튼4(리터럴함수)</button>
+<button id="btn5">버튼5(익명함수)</button>
+<button id="btn6">함수호출</button>
+<button id="btn7">함수호출(이름주의)</button>
+
+<hr>
+<div id="here"></div>
+<script>
+btn7.onclick = function(){
+	alert(f); // f는 함수
+	var f = 100;
+	alert(f)  // f는 숫자변수
+	var f = "js";
+	alert(f)  // f는 문자변수
+	function f(){
+		alert("함수");
+	};
+	// f(); 	  // 오류, f는 문자변수이다.
+};
+</script>
+<script>
+btn6.onclick = function(){
+	var p1 = {x:1, y:2};
+	var p2 = {x:3, y:4};
+	var d = dist(p1, p2);
+	here.innerHTML = "두 점의 거리는" + d;
+};
+
+function dist(obj1, obj2){
+	var xx = obj2.x - obj1.x;
+	var yy = obj2.y - obj1.y;
+	return Math.sqrt(xx*xx + yy*yy) 
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var a=10;		// global
+b=20;			// global
+{
+	var c=30;	// global {}는 function이 아니기 때문
+	d=40;		// global
+	let e=40;	// {}내에서만 유효
+}
+console.log(a+b+c+d);
+call();
+function call(){
+	console.log(aa);	// undefined
+	// console.log(cc);	// error let가 호이스팅은 되는데 undefined로 들어가지 X, 접근이 불가능 
+	var aa = 100;// local
+	bb = 200;	 // global
+	let cc = 300;
+	console.log(a+b+c+d+aa+bb+cc);
+};
+
+const pi = 3.14;
+// pi = 3.141592;			// 재할당 불가
+
+// Circle Object
+radius = 10;
+var circle = {
+	center : {x:1, y:2},
+	radius : 3,
+	area : function(){
+		return this.radius*this.radius*Math.PI; // 그냥 radius하면 radius = 10값이 들어가
+	}
+};
+
+circle.translate = function(){
+	this.center.x = 10;
+	this.center.y = 20;
+	this.radius = 30;
+};
+circle.translate();
+console.log(circle.area());
+</script>
+</body>
+</html>

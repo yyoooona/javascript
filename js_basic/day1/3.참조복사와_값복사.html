@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var a=10;
+// 값의 전달, 값만 복사
+var b = a;
+b++;
+console.log("a = " + a +" b = "+b);
+
+// 주소의 전달 (객체는 다 주소의 전달)
+var obj = {name:"한지윤", age:20};
+var obj2 = obj;
+obj2.age = 30;
+console.log("obj.age = " + obj.age +
+			" obj2.age = " + obj2.age);
+
+function call(obj3){
+	obj3.age = 40;
+}
+call(obj);
+
+console.log("obj.age = " + obj.age +
+		" obj2.age = " + obj2.age);
+
+</script>
+</body>
+</html>
