@@ -18,7 +18,7 @@
 <br/>
 <br/>
 
-###실제 코드에서 활용한 부분
+### 실제 코드에서 활용한 부분
 
 <br/>
 
@@ -60,7 +60,7 @@ btn1.onclick = function(){
 <br/>
 
 ```
-		var call = function(a, b, c){
-			return a+b+c;
-		};
+var call = function(a, b, c){
+	return a+b+c;
+};
 ```
