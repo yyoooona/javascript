@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Function 생성자 및 인스턴스</title>
+</head>
+<body>
+<script>
+function Card(na, ra) {
+	// 이렇게 대문자로 시작 -> 생성자 함수
+	this.name = na;
+	this.rank = ra;
+	name2 = na; //window변수로 만들어지니까 주의!
+	this.show = function(){
+		alert(this.name+"======>" + this.rank);
+	};
+};
+
+var c1 = new Card("하트", "A");
+var c2 = new Card("하트2", "A2");
+
+console.log(`name2=${name2}`);
+console.log(`c1.name=${c1.name}`);
+console.log(`c2.name=${c2.name}`);
+
+c1.show();
+c2.show();
+
+var call2 = function () {
+	console.log("리터럴함수");
+};
+function call(){
+	// 문장들의 묶음 -> 반복 수행, 모듈화
+	console.log("선언적 함수");
+};
+
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.onload = function(){
+	btn1.onclick = function(){
+		var age = prompt("나이를 입력하세요", 20);
+		alert("당신의 만 나이는 "+(age-1))
+	};
+	btn2.onclick = function(){
+		var result = confirm("r u understand?");
+		alert(result);
+	};
+	btn3.onclick = function(){
+		var arr = document.querySelectorAll("h1.bb");
+	};
+	
+	var bgarr = ["pink", "yellow", "lightblue", "lightgreen"];
+	
+	
+	btn4.onclick = function(){
+		setTimeout(function() {
+			here.innerHTML = new Date();
+			var idx = Math.floor(Math.random()*bgarr.length);
+			document.bgColor = bgarr[idx];
+		}, 1000);
+	};
+	
+	var ret;
+	
+	btn5.onclick = function () {
+		ret = setInterval(function() {
+			here.innerHTML += "<br>"+new Date();
+			var idx = Math.floor(Math.random()*bgarr.length);
+			document.bgColor = bgarr[idx];
+		}, 1000);
+	};
+	
+	window.onmousemove = function(){
+		clearInterval(ret);
+	}
+}
+</script>
+<style>
+	#aa {
+		border:2px dotted red;
+	}
+	h1.bb {
+		border:2px solid red;
+	}
+</style>
+</head>
+<body>
+<h1 id="aa">DOM요소 찾기</h1>
+<h1 class="bb">DOM요소 찾기</h1>
+<h1 class="bb">DOM요소 찾기</h1>
+
+
+<button id="btn1">prompt</button>
+<button id="btn2">confirm</button>
+<button id="btn3">selector 이용(DOM 요소 찾기)</button>
+<button id="btn4">setTimer</button>
+<button id="btn5">setInterval</button>
+<div id="here">여기</div>
+</body>
+</html>
