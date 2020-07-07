@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<input type="text" id="name">
+<button id="add">학생 추가</button>
+<div id = "here"></div>
+
+<script>
+var arr = [100, "javascript", true, , {a:3, b:4}, function(){alert("함수입니다.")}];
+console.log(arr.length);
+console.log(arr[5]);
+console.log(arr[5]());
+console.log("-----------------");
+for(var i=0; i<arr.length; i++){
+	console.log(arr[i]);
+}
+
+var arr2 = [];
+add.onclick = function(){
+	var name = document.getElementById("name");
+	arr2.push(name.value);
+	// 배열 추가 push 함수
+	here.innerHTML = arr2.toString().replace(/,/g, "<hr>");
+	
+};
+</script>
+</body>
+</html>
