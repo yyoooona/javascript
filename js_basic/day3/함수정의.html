@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+// 3. Function 생성자
+var square = new Function("x", "return x*x;");
+console.log("Function 생성자 : ", square(10));
+
+// 4. 화살표함수
+var square = (x)=>x*x
+console.log("화살표함수: ", square(10));
+var add = (a,b)=>a+b;
+console.log("화살표함수: ", add(10,20));
+
+// 즉시 실행함수
+
+(function (x){
+	console.log("즉시실행함수"+x);
+})("커피");
++function (x){
+	console.log("즉시실행함수"+x);
+}("카피라테");
+
+// 함수인자
+function multiply(a,b){
+	b = b || 1;
+	return a*b;
+}
+
+
+function multiply(){
+	sum = 0;
+	// console.log(arguments);
+	for(var i in arguments){
+		sum+=arguments[i];
+	}
+	return sum;
+}
+
+console.log(multiply(10, 20));
+console.log(multiply(10));
+console.log(multiply(1,2,3,4,5,6,7,8,9,10));
+	
+// 재귀함수
+console.log(fact(5));
+
+function fact(n) {
+   if(n==1) return 1;
+   return n * fact(n-1);
+}
+
+
+</script>
+
+</body>
+</html>

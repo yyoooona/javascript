@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var name = "진";
+var obj = {
+		name:"TOM",
+		sayHello:function(){
+			alert(this.name); // this는 object를 의미
+		}
+};
+obj.sayHello();
+console.log("window:"+this);
+
+function Person(name, age){
+	this.name = name;
+	this.age = age;
+	Person.prototype.intro = function(){
+		alert("내이름은"+ this.name);
+	}
+}
+var p = new Person("두영", 27);
+p.intro();
+</script>
+</body>
+</html>
