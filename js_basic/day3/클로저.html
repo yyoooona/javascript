@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<input type="button" value="0">
+<input type="button" value="1">
+<input type="button" value="2">
+<input type="text" value="클로저 연습">
+<script>
+
+// 이름공간을 이용해서 global 오염 방지
+var myApp = myApp|| {};
+myApp.name = "나의 공간";
+myApp.f = function(){};
+
+
+
+var bs = document.querySelectorAll("input[type='button']");
+// 방법 2
+for(var i=0;i<bs.length;i++){
+	(function(a){
+		bs[i].onclick = function(){
+			alert(a+"번째");
+		};
+	})(i);
+}
+
+// 방법 1 but window explore에서 지원 X
+/* for(let i=0;i<bs.length;i++){
+	console.log(bs[i]);
+	bs[i].onclick = function(){
+		alert(i+"번째");
+	};
+} */
+</script>
+
+<script>
+function makeCounter(){
+	var count;
+	return f;
+	
+	function f(){
+		return ++count;
+	}
+}
+
+function Person(name, age){
+	var _name = name;
+	var _age = age;
+	
+	return{
+		getName:function(){return _name;},
+		getAge:function(){return _age;},
+		setName:function(n){_name=n;},
+		setAge:function(a){_age=a;}
+	}
+}
+
+var p1=new Person("한지윤", 20);
+console.log(p1.getName());
+console.log(p1.getAge());
+p1.setName("한제니");
+p1.setAge(27);
+console.log(p1.getName());
+console.log(p1.getAge());
+
+var a = makeCounter();	
+</script>
+</body>
+</html>
